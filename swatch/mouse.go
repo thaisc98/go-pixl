@@ -1,6 +1,6 @@
 package swatch
 
-import "fyne.io.fyne/v2/driver/desktop"
+import "fyne.io/fyne/v2/driver/desktop"
 
 
 func (swatch *Swatch) MouseDown(ev *desktop.MouseEvent){
