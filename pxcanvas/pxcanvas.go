@@ -71,7 +71,7 @@ func (pxCanvas *PxCanvas) CreateRenderer() fyne.WidgetRenderer {
 
 	canvasBorder := make([]canvas.Line, 4)
 	for i := 0; i < len(canvasBorder); i++ {
-		canvasBorder[i].StrokeColor = color.NRGBA{100,100,100,255}
+		canvasBorder[i].StrokeColor = color.NRGBA{200,200,200,255}
 		canvasBorder[i].StrokeWidth = 2
 	}
 
