@@ -1,5 +1,14 @@
 package pxcanvas
 
+import (
+	//"image"
+	//"image/color"
+	"fyne.io/fyne/v2"
+	"fyne.io/fyne/v2/canvas"
+	//"fyne.io/fyne/v2/widget"
+	//"project/pixl/apptype"
+)
+
 type PxCanvasRenderer struct {
 	pxCanvas *PxCanvas
 	canvasImage *canvas.Image
@@ -15,7 +24,7 @@ func (renderer *PxCanvasRenderer) MinSize() fyne.Size {
 func (renderer *PxCanvasRenderer) Objects() []fyne.CanvasObject {
 	objects := make([]fyne.CanvasObject, 0 , 5)
 	for i := 0; i <  len(renderer.canvasBorder); i++ {
-		objects = append(objects, &render.canvasBorder[i])
+		objects = append(objects, &renderer.canvasBorder[i])
 	}
 	objects = append(objects, renderer.canvasImage)
 	return objects
@@ -45,7 +54,7 @@ func (renderer *PxCanvasRenderer) LayoutCanvas(size fyne.Size) {
 	imgPxHeight := renderer.pxCanvas.PxRows
 	pxSize := renderer.pxCanvas.PxSize
 
-	renderer.canvasImage.Move(fyne.NewPos(renderer.pxCanvas.CanvasOffset.X, render.pxCanvas.CanvasOffset.Y))
+	renderer.canvasImage.Move(fyne.NewPos(renderer.pxCanvas.CanvasOffset.X, renderer.pxCanvas.CanvasOffset.Y))
 	renderer.canvasImage.Resize(fyne.NewSize(float32(imgPxWidth*pxSize), float32(imgPxHeight*pxSize)))
 }
 

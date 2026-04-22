@@ -7,7 +7,7 @@ import (
 
 type BrushType = int
 
-type PxCanvasconfig struct {
+type PxCanvasConfig struct {
 	DrawingArea fyne.Size
 	CanvasOffset fyne.Position
 	PxRows, PxCols int
