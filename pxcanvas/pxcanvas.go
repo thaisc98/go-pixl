@@ -3,10 +3,12 @@ package pxcanvas
 import (
 	"image"
 	"image/color"
+	"log"
 	
 	"fyne.io/fyne/v2"
 	"fyne.io/fyne/v2/canvas"
 	"fyne.io/fyne/v2/widget"
+	"fyne.io/fyne/v2/driver/desktop"
 
 	"project/pixl/apptype"
 )
@@ -81,4 +83,14 @@ func (pxCanvas *PxCanvas) CreateRenderer() fyne.WidgetRenderer {
 	}
 	pxCanvas.renderer = renderer
 	return renderer
+}
+
+func(pxCanvas *PxCanvas) TryPan(previousCoord *fyne.PointEvent, ev *desktop.MouseEvent){
+	log.Println("This is a basic log message")
+	log.Println(ev.Button)
+	log.Println(desktop.MouseButtonPrimary)
+	//https://pkg.go.dev/fyne.io/fyne/v2/driver/desktop#MouseButton
+	if previousCoord != nil && ev.Button == desktop.MouseButtonPrimary {
+		pxCanvas.Pan(*previousCoord, ev.PointEvent)
+	}
 }
